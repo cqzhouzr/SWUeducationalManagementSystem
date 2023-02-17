@@ -1,0 +1,75 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Page-Enter" content="blendTrans(Duration=0)"/>
+<meta http-equiv="Page-Exit" content="blendTrans(Duration=0)"/>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>    
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/jwxt.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <form runat="server">
+    <div class="page">
+        <div class="banner">
+        </div>
+        <div class="header">
+            <div class="title">
+                <h1>
+                    教务系统
+                </h1>
+            </div>
+            <div class="loginDisplay">
+                               
+                    
+                        欢迎您，<span class="bold"><asp:Label ID="Label_loginName" runat="server" Text="Label"></asp:Label></span>!                        
+                    
+                
+            </div>
+            <div class="clear"></div>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu"  runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="主页" />
+                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="关于"/>
+                        <asp:MenuItem Text="信息查询" Value="信息查询">
+                            <asp:MenuItem NavigateUrl="~/查询学生名单.aspx" Text="学生名单查询" Value="学生名单查询">
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="个人课表查询" Value="个人课表查询" NavigateUrl="~/查询课表.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="成绩" Value="成绩">
+                            <asp:MenuItem Text="设置考核参数" Value="设置考核参数" NavigateUrl="~/设置考核参数.aspx"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/录入成绩.aspx" Text="成绩录入" Value="成绩录入"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Account/Login.aspx" Text="退出" Value="退出">
+                        </asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </div>
+          
+        </div>
+        <div class="clear"></div>
+        <div style="clear:both;"></div>
+        <div class="currentOperation">
+                当前操作：<span class="bold"><asp:Label ID="Label_operation" runat="server" Text="Label"></asp:Label></span>
+        </div>
+        <div class="main">
+            
+            <br/>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>    
+       
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>
